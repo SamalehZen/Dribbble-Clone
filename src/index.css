@@ -1,10 +1,116 @@
 @import "tailwindcss";
 
+/**
+ * ============================================
+ * DARK MODE THEME SYSTEM - CSS STYLES
+ * ============================================
+ */
+
+/* ============================================
+   VARIABLES DE THÈME
+   ============================================ */
+:root {
+  /* === Mode Clair (par défaut) === */
+  color-scheme: light;
+
+  /* Couleurs principales */
+  --background: #EFEDE6;
+  --foreground: #09090b;
+
+  /* Cartes et conteneurs */
+  --card: #ffffff;
+  --card-foreground: #09090b;
+
+  /* Popover/Dropdown */
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+
+  /* Couleur primaire (accent) */
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+
+  /* Couleur secondaire */
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+
+  /* Éléments atténués */
+  --muted: #e8e6df;
+  --muted-foreground: #71717a;
+
+  /* Accent */
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+
+  /* Destructif (erreurs/suppression) */
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+
+  /* Bordures et inputs */
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #18181b;
+
+  /* Rayon des bordures */
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* === Mode Sombre === */
+  color-scheme: dark;
+
+  /* Couleurs principales */
+  --background: #09090b;
+  --foreground: #fafafa;
+
+  /* Cartes et conteneurs */
+  --card: #09090b;
+  --card-foreground: #fafafa;
+
+  /* Popover/Dropdown */
+  --popover: #09090b;
+  --popover-foreground: #fafafa;
+
+  /* Couleur primaire (accent) */
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+
+  /* Couleur secondaire */
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+
+  /* Éléments atténués */
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+
+  /* Accent */
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+
+  /* Destructif (erreurs/suppression) */
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+
+  /* Bordures et inputs */
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4d4d8;
+}
+
+/* ============================================
+   TAILWIND THEME
+   ============================================ */
 @theme {
   --font-primary: 'Plus Jakarta Sans', sans-serif;
   --color-monotree-black: #000000;
   --color-monotree-green: #4ade80;
   --color-monotree-bg: #EFEDE6;
+}
+
+/* ============================================
+   STYLES DE BASE
+   ============================================ */
+* {
+  border-color: var(--border);
 }
 
 @layer base {
@@ -13,6 +119,79 @@
   }
 
   body {
-    background-color: var(--color-monotree-bg);
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
   }
+}
+
+/* ============================================
+   VIEW TRANSITIONS - ANIMATION CIRCULAIRE
+   ============================================ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation: circular-reveal 0.4s ease-in-out forwards;
+}
+
+@keyframes circular-reveal {
+  from {
+    clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+  }
+
+  to {
+    clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+  }
+}
+
+/* ============================================
+   ACCESSIBILITÉ - MOUVEMENT RÉDUIT
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root) {
+    animation-duration: 0.1s !important;
+  }
+}
+
+/* ============================================
+   CLASSES UTILITAIRES
+   ============================================ */
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-card {
+  background-color: var(--card);
+}
+
+.bg-muted {
+  background-color: var(--muted);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.text-muted-foreground {
+  color: var(--muted-foreground);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.border-border {
+  border-color: var(--border);
 }
