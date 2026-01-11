@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  --color-monotree-black: #000000;
+  --color-monotree-green: #4ade80;
+  --color-monotree-bg: #EFEDE6;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-primary);
+  }
+
+  body {
+    background-color: var(--color-monotree-bg);
+  }
+}
