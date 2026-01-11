@@ -1,73 +1,140 @@
-# React + TypeScript + Vite
+# 🎨 Monotree UI Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pixel-perfect clone of the Monotree landing page, built with modern web technologies and a custom warm beige design theme.
 
-Currently, two official plugins are available:
+![Original Design](public/1.jpg)
+*Original Monotree Design (Reference)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Final Result](public/2.png)
+*Cloned Version with Custom #EFEDE6 Theme*
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎯 **100% Visual Fidelity** - Pixel-perfect recreation of the Monotree UI
+- 🎨 **Custom Theme** - Warm beige background (`#EFEDE6`) instead of white
+- ⚡ **Modern Stack** - Built with Vite, React, TypeScript, and Tailwind CSS v4
+- 📱 **Responsive Design** - Mobile-first approach with seamless desktop scaling
+- 🌊 **Glassmorphism Effects** - Modern UI with backdrop blur and transparency
+- ✅ **Clean Code** - TypeScript strict mode, no unused imports
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: [React 19](https://react.dev/) with TypeScript
+- **Build Tool**: [Vite 7](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Fonts**: [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) (Google Fonts)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🎨 Design Highlights
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Color Palette
+- **Background**: `#EFEDE6` - Warm beige/cream
+- **Primary Text**: `#000000` - Pure black
+- **Accent**: `#4ade80` - Vibrant green
+- **Interactive Elements**: White with 70-90% opacity + backdrop blur
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Key Components
+1. **Navbar** - Sticky header with glassmorphism effect
+2. **Hero Section** - Two-column layout with headline, CTA form, and stats
+3. **Illustrations** - Custom isometric 3D app mockup
+4. **Cookie Banner** - Floating bottom banner with smooth transitions
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/SamalehZen/Dribbble-Clone.git
+
+# Navigate to project directory
+cd Dribbble-Clone
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Build for Production
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Create optimized build
+npm run build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview production build
+npm run preview
 ```
+
+## 📂 Project Structure
+
+```
+DD/
+├── public/
+│   ├── 1.jpg                    # Original design reference
+│   ├── 2.png                    # Final result screenshot
+│   └── hero-illustration.png    # Hero section image
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx          # Header navigation
+│   │   └── Hero.tsx            # Main hero section
+│   ├── App.tsx                 # Main application
+│   ├── index.css               # Tailwind + custom theme
+│   └── main.tsx                # Entry point
+├── tailwind.config.js
+├── vite.config.ts
+└── package.json
+```
+
+## 🎯 Design Decisions
+
+### Why Beige Theme?
+The custom `#EFEDE6` background provides:
+- ✅ Reduced eye strain compared to pure white
+- ✅ Warm, premium aesthetic
+- ✅ Better contrast for glassmorphism effects
+- ✅ Modern, sophisticated look
+
+### Typography
+**Plus Jakarta Sans** was chosen for:
+- Clean, geometric letterforms
+- Excellent readability at all sizes
+- Professional yet friendly appearance
+- Variable font weights (400-800)
+
+## 📸 Screenshots Comparison
+
+### Before (Original)
+![Original](public/1.jpg)
+
+### After (Cloned with Custom Theme)
+![Result](public/2.png)
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This is a learning/portfolio project. The original Monotree design belongs to their respective owners.
+
+## 👤 Author
+
+**SamalehZen**
+- GitHub: [@SamalehZen](https://github.com/SamalehZen)
+
+---
+
+⭐ **Star this repo** if you found it helpful!
+
+Built with ❤️ using React + Tailwind CSS
