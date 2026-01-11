@@ -64,7 +64,18 @@ const Hero: React.FC = () => {
                 {/* Right Content - Illustration Area */}
                 <div className="relative h-[700px] w-full hidden lg:block perspective-1000">
                     <div className="absolute inset-0 flex items-center justify-center scale-110">
-                        <img src="/hero-illustration.png" alt="App Illustration" className="w-full h-full object-contain drop-shadow-2xl" />
+                        <img
+                            src="/hero-illustration-optimized.png"
+                            alt="App Illustration"
+                            className="w-full h-full object-contain drop-shadow-2xl"
+                            loading="eager"
+                            onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                if (target.src.includes('.png')) {
+                                    target.src = '/hero-fallback.svg';
+                                }
+                            }}
+                        />
                     </div>
                 </div>
             </div>
