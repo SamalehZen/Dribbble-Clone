@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Star } from 'lucide-react';
 import { useThemeStore } from '../store/theme-store';
+import { InfiniteGrid } from './ui/the-infinite-grid';
 
 const Hero: React.FC = () => {
     const { theme } = useThemeStore();
@@ -25,7 +26,7 @@ const Hero: React.FC = () => {
     const heroImage = isDark ? '/dark.png' : '/hero-illustration-optimized.png';
 
     return (
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <InfiniteGrid className="pt-32 pb-20">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                 {/* Left Content */}
@@ -101,7 +102,7 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </InfiniteGrid>
     );
 };
 
